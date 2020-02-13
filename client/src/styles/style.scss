@@ -1,0 +1,16 @@
+@import "./variables";
+@import "./header";
+@import "./main";
+@import "./category";
+@import "./movie";
+@import "./detail";
+@import "./login";
+@import "./watchlist";
+
+body {
+    margin: 0;
+    background: url('../background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}

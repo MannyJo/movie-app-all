@@ -1,0 +1,25 @@
+.category-btn {
+    button {
+        border: 1px solid grey;
+        width: 25%;
+        height: 35px;
+        padding: 5px;
+        font-size: 15px;
+        outline: none;
+
+        &:first-child {
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+
+        &:last-child {
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        &:hover {
+            background-color: rgba($color: red, $alpha: 0.5);
+            color: white;
+        }
+    }
+}

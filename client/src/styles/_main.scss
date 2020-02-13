@@ -1,0 +1,15 @@
+.main-container {
+    padding: 65px 15px;
+}
+
+.load-more-btn-container {
+    margin: 10px 20px;
+    .load-more-btn {
+        width: 100%;
+        background-color: rgba($color: #67c053, $alpha: 1.0);
+
+        &:hover, &:active {
+            background-color: darken($color: #67c053, $amount: 20%)
+        }
+    }
+}

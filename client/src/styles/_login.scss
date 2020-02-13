@@ -1,0 +1,86 @@
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 300px;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+    padding: 10px;
+    border-radius: 10px;
+
+    h1 {
+        color: gold;
+        text-transform: uppercase;
+    }
+
+    label > div {
+        margin: 10px 0;
+        font-size: 20px;
+    }
+
+    input {
+        width: 100%;
+        padding: 5px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        font-size: 15px;
+        outline: none;
+        border: solid grey 2px;
+    }
+
+    .login-login-failed {
+        display: none;
+        margin-top: 15px;
+        background-color: rgba($color: #ff4a4a, $alpha: 0.8);
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid white;
+    }
+
+    .warning {
+        display: inherit;
+    }
+
+    .login-btn {
+        margin-top: 20px;
+        button {
+            width: 100%;
+            padding: 5px;
+            border: 0;
+            border-radius: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            outline: none;
+            background-color: gold;
+        }
+    }
+
+    label > .password-container {
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: white;
+        border: solid grey 2px;
+        border-radius: 5px;
+        margin: 0;
+
+        input {
+            background: none;
+            border:none;
+        }
+
+        .password-toggle {
+            font-size: 15px;
+            color: rgba($color: #000000, $alpha: 0.5);
+            background: none;
+            border: none;
+            text-transform: lowercase;
+            outline: none;
+            &:hover {
+                color: rgba($color: #000000, $alpha: 0.7);
+            }
+        }
+    }
+}
