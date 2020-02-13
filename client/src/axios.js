@@ -17,6 +17,7 @@ export const movieApiAxios = axios.create({
 });
 
 export const serverAxios = axios.create({
-    baseURL: 'http://localhost:8000',
+    // baseURL: 'http://localhost:8000',
+    baseURL: 'https://ma-movie-app.herokuapp.com/',
     headers: headers
 });
