@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     user_register,
     get_user_info,
-    user_logout
+    user_logout,
+    check_server,
 )
 from rest_framework.authtoken.views import obtain_auth_token
 
@@ -12,5 +13,6 @@ urlpatterns = [
     path('register/', user_register, name='register'),
     path('login/', obtain_auth_token, name='login'),
     path('user_info/<email>/', get_user_info, name='user_info'),
-    path('user_logout/', user_logout, name='logout')
+    path('user_logout/', user_logout, name='logout'),
+    path('servercheck/', check_server, name='servercheck')
 ]

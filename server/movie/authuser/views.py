@@ -56,3 +56,9 @@ def user_logout(request):
     if request.method == 'GET':
         logout(request)
     return Response({'response': 'successfully logged out'})
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def check_server(request):
+    # This is just for waking up the server.
+    return Response(data={'response': 'Server just woke up'})

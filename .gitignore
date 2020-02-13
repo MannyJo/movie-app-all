@@ -25,3 +25,4 @@ yarn-error.log*
 # custom
 config.js
 .vscode
+/client/build

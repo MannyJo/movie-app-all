@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,7 @@ import Detail from '../Detail/Detail';
 import Login from '../Login/Login';
 import Watchlist from '../Watchlist/Watchlist';
 import { titleReducer as reducer } from '../../reducers/reducer';
+import { serverAxios } from '../../axios';
 
 import '../../styles/style.scss';
 
@@ -20,6 +21,19 @@ function App() {
   const [page, setPage] = useState(DEFAULT_PAGE);
   const [state, dispatch] = useReducer(reducer, initTitle);
   const [token, setToken] = useState(window.sessionStorage.getItem('token'));
+
+  useEffect(() => {
+    wakeServer();
+  }, [ DEFAULT_PAGE ]);
+
+  const wakeServer = () => {
+    serverAxios.get('/api/user/servercheck/')
+    .then(results => {
+      console.log(results.data.response);
+    }).catch(err => {
+      console.log(err);
+    })
+  }
 
   return (
     <div>
@@ -44,12 +58,7 @@ function App() {
               DEFAULT_PAGE={DEFAULT_PAGE} 
             />
           </Route>
-          <Route path="/detail/:id">
-            <Detail
-              token={token}
-              setToken={setToken}
-            />
-          </Route>
+          <Route path="/detail/:id" component={Detail} />
           <Route path="/auth" component={Login} />
           <Route path="/watchlist">
             <Watchlist />
