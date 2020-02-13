@@ -28,3 +28,7 @@ Find your next movie or create your watchlist with My Movie App. It includes rev
 ## Useful links and resources
 
 -   [MovieDB Api](https://developers.themoviedb.org/3)
+
+## Go to the site
+
+-   [My Movie](https://ma-movie-page.herokuapp.com/)
