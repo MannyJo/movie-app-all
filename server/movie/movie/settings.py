@@ -144,5 +144,5 @@ CSRF_COOKIE_NAME = "csrftoken"
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = (
     # 'http://localhost:3000',
-    'https://quirky-villani-5ea5ba.netlify.com',
+    'https://ma-movie-page.herokuapp.com',
 )
