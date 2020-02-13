@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import {
     Link,
 } from 'react-router-dom';
@@ -8,7 +8,15 @@ import Movie from '@material-ui/icons/Movie';
 import ListIcon from '@material-ui/icons/List';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-const Header = ({ title, setTitle, dispatch, setPage, DEFAULT_PAGE, token, setToken }) => {
+const Header = ({ 
+    title, 
+    setTitle, 
+    dispatch, 
+    setPage, 
+    DEFAULT_PAGE, 
+    token, 
+    setToken 
+}) => {
 
     useEffect(() => {
         setToken(window.sessionStorage.getItem('token'));

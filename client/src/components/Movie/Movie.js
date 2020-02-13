@@ -8,6 +8,7 @@ const Movie = ({ movie }) => {
             <a href={`/detail/${movie.id}`}>
                 {
                     movie.poster_path === null ?
+                    // eslint-disable-next-line
                     <img src={bgImg} alt="no image" />:
                     <img src={MOVIE_DB_IMAGE_URL.small+movie.poster_path} alt={movie.title} />
                 }

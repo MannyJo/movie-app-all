@@ -74,6 +74,7 @@ const Detail = () => {
             <div className="movie-detail-img">
                 {
                     detail.poster_path === null ?
+                    // eslint-disable-next-line
                     <img src={bgImg} alt="no image" />:
                     <img src={MOVIE_DB_IMAGE_URL.small+detail.poster_path} alt={detail.title} />
                 }
