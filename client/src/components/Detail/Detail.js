@@ -23,10 +23,6 @@ const Detail = () => {
         movieApiAxios.get(`/movie/${id}/credits`, { params: movieParam })
         .then(results => {
             setCast(results.data.cast);
-            // console.log(results.data.cast)
-            // for(const actor of results.data.cast){
-            //     console.log(actor.name, actor.character, actor.profile_path)
-            // }
         }).catch(err => {
             console.log(err)
         })

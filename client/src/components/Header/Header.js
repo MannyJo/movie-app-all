@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import {
-    Link,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import SearchBtn from '@material-ui/icons/Search'
 import Button from '@material-ui/core/Button';
 import Movie from '@material-ui/icons/Movie';
@@ -20,10 +18,9 @@ const Header = ({
 
     useEffect(() => {
         setToken(window.sessionStorage.getItem('token'));
-        return () => {
-            setToken('')
-        }
-    }, [ window.sessionStorage.getItem('token') ])
+
+        return () => setToken('');
+    }, [ token, setToken ])
   
     const handleChange = () => e => {
         setTitle(e.target.value);
@@ -40,11 +37,16 @@ const Header = ({
         setToken('');
     }
 
+    const goToMainPage = () => {
+        setPage(DEFAULT_PAGE);
+        dispatch({ type: 'SEARCH_TITLE_RESET' });
+    }
+
     return (
         <div className="sticky">
             <div className="nav-bar">
                 <div className="logo">
-                    <Link to="/" onClick={() => setPage(DEFAULT_PAGE)}>
+                    <Link to="/" onClick={goToMainPage}>
                         <Movie style={{ fontSize: 40, color: 'gold' }} /> 
                         <div>My Movie</div>
                     </Link>

@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'ma-movie-app.herokuapp.com',
+    'ma-movie-page.herokuapp.com',
     # 'localhost'
 ]
 
