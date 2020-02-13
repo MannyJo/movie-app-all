@@ -10,6 +10,7 @@ const Detail = () => {
     const { id } = useParams();
     const [detail, setDetail] = useState({});
     const [watchlistBtn, setWatchlistBtn] = useState('');
+    const [cast, setCast] = useState([]);
 
     useEffect(() => {
         movieApiAxios.get(`/movie/${id}`, { params: movieParam })
@@ -18,6 +19,17 @@ const Detail = () => {
         }).catch(err => {
             console.error('Error with getting movie detail :', err);
         });
+
+        movieApiAxios.get(`/movie/${id}/credits`, { params: movieParam })
+        .then(results => {
+            setCast(results.data.cast);
+            // console.log(results.data.cast)
+            // for(const actor of results.data.cast){
+            //     console.log(actor.name, actor.character, actor.profile_path)
+            // }
+        }).catch(err => {
+            console.log(err)
+        })
 
         if(window.sessionStorage.token) {
             serverAxios.get(`/api/watchlist/${id}`)
@@ -109,9 +121,7 @@ const Detail = () => {
                     <div>
                         {
                             detail.genres && 
-                            <span>
-                                Genres : {detail.genres.map(genre => <span className="movie-detail-genre" key={genre.id}>{genre.name}</span>)}
-                            </span>
+                            detail.genres.map(genre => <span className="movie-detail-genre" key={genre.id}>{genre.name}</span>)
                         }
                     </div>
                 </div>
@@ -126,6 +136,24 @@ const Detail = () => {
                         Budget : {numberToMoney(detail.budget)}
                     </div>
                 </div>
+            </div>
+            <div className="cast-container">
+                {
+                    cast.map((cast, i) => (
+                        <div className="cast-info" key={i}>
+                            {
+                                cast.profile_path ? 
+                                <img className="cast-img" src={MOVIE_DB_IMAGE_URL.small+cast.profile_path} alt={cast.name} />:
+                                // eslint-disable-next-line
+                                <img className="cast-img" src={bgImg} alt="no image" />
+                            }
+                            <div className="cast-name">
+                                <div>{cast.name}</div>
+                                <div>"{cast.character}"</div>
+                            </div>
+                        </div>
+                    ))
+                }
             </div>
         </div>
     )

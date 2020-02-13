@@ -1,8 +1,45 @@
 .movie-detail-container {
     margin: 70px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 1fr;
+    grid-template-areas: '. .' 'castArea castArea';
     font-size: 20px;
+
+    .cast-container {
+        grid-area: castArea;
+        padding: 10px;
+        background-color: white;
+        color: black;
+        box-sizing: border-box;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .cast-info {
+            font-size: 15px;
+            text-align: center;
+            width: 150px;
+            height: 300px;
+            margin: 5px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            
+            .cast-img {
+                width: 150px;
+                height: 225px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+
+            .cast-name {
+                position: relative;
+                top: 10%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
 
     .movie-detail-img {
         height: 450px;
